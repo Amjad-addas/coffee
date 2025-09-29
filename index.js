@@ -37,4 +37,4 @@ app.use((err,req,res,next)=>{
     return res.send(`${err.message}`)
 })
 
-app.listen(8000,()=>console.log(`server is running on port ${8000} `))
+app.listen(8000||process.env.PORT,()=>console.log(`server is running on port ${8000} `))

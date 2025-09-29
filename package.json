@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:css": "postcss puplic/style/tailwind.css -o puplic/style/style.css -watch"
+    "build:css": "postcss puplic/style/tailwind.css -o puplic/style/style.css -watch",
+    "start":"node index.js"
+  },
+  "engines": {
+    "node": "22.11.0"
   },
   "author": "",
   "license": "ISC",
