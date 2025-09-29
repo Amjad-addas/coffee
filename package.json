@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build:css": "postcss puplic/style/tailwind.css -o puplic/style/style.css -watch",
-    "start":"node index.js"
+    "start":"node server"
   },
   "engines": {
     "node": "22.11.0"
