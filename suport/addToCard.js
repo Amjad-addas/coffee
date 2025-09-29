@@ -7,7 +7,9 @@ const addToCards=async(list,req,id ,op,res)=>{
         
         
         list.productId.forEach(async element => {
-            if(element.name==req.name && op=='add'){
+            console.log(element.name)
+            if(element.name==req.name || op=='add'){
+     
                 key =1
                 element.quntity=element.quntity+1
                 
@@ -18,7 +20,7 @@ const addToCards=async(list,req,id ,op,res)=>{
             );
 
             }
-            else if(element.name==req.name && op=='min'){
+            else if(element.name==req.name || op=='min'){
                 key =1
                 if(element.quntity!=1){
                 element.quntity=element.quntity-1
@@ -29,7 +31,7 @@ const addToCards=async(list,req,id ,op,res)=>{
 
             );
             }
-            else if(element.name==req.name&& op=="remove"){
+            else if(element.name==req.name|| op=="remove"){
                 key =1
                 const filteredItems = list.productId.filter(item => item.name !== req.name);
                 

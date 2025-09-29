@@ -111,16 +111,13 @@ const addToCard=async(req,res)=>{
             return res.send("you are not register")
         }
     const product=await Product.findById(req.params.id)
-    console.log(product)
     const id =decode(req.cookies.id)
-    console.log(id)
     const card = await  Card.find(
         {userId:id}
     )
 
 
     let list =card[0]
-    
     addToCards(list,product,id,req.query.op)
     if(req.query.op=="add"||req.query.op=="min"||req.query.op=="remove"){
         res.redirect("/card")

@@ -6,9 +6,13 @@ const decode = require("../suport/decodJWT")
 const isFav = require("../suport/findFav")
 var jwt = require('jsonwebtoken');
 const home=async(req,res)=>{
-    
-    const products = await Product.find()
+    try {
+            const products = await Product.find()
     return res.render("index.ejs",{products:products})
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 const addNewProduct=async(req,res)=>{
