@@ -53,7 +53,7 @@ const profile=async(req,res)=>{
     return res.render("profile.ejs",{products:products,user:user[0]})
 }
 const product=async(req,res)=>{
-        const products = await Product.find()
+    const products = await Product.find()
     const product = await Product.findById(req.params.id)
     const isfav=await isFav(req)
     return res.render("product.ejs",{product:product,isfav:isfav,products:products})

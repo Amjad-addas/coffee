@@ -106,6 +106,10 @@ const deletFromFavourit=async(req,res)=>{
 }
 
 const addToCard=async(req,res)=>{
+            if(req.cookies.id==undefined){
+
+            return res.send("you are not register")
+        }
     const product=await Product.findById(req.params.id)
     console.log(product)
     const id =decode(req.cookies.id)
