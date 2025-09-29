@@ -51,7 +51,6 @@ const signIn=async(req,res)=>{
         }
         
         if(await isPassword( req.body.password,users.password)==false){
-            console.log("asdasdas")
             return res.send("passwor or user name is wrong");
         }
         addCookis("id",res,jwt.sign({email:req.body.email},"0988599231"))
@@ -74,6 +73,10 @@ const updateUser =async(req,res)=>{
     return res.redirect("/profile")
 }
 const addToFavourit=async(req,res)=>{
+            if(req.cookies.id==undefined){
+
+            return res.send("you are not register")
+        }
     if(req.cookies.id){
         const fav =new Favourit({
             userId:decode(req.cookies.id),
@@ -86,6 +89,10 @@ const addToFavourit=async(req,res)=>{
 }
 
 const deletFromFavourit=async(req,res)=>{
+            if(req.cookies.id==undefined){
+
+            return res.send("you are not register")
+        }
       const userId=decode(req.cookies.id)
 
     const fav = await Favourit.find({
